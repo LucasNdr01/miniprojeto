@@ -35,6 +35,10 @@ def relatorio_qualidade(df):
 
 relatorio_qualidade(df)
 
+#Verificando nulo escondido
+print(df['PR_CAT'].value_counts())
+print(df['PR_NOME'].value_counts())
+
 #Padronização de valores inválidos
 df.replace(['#N/D','NULL', 'N/A', '', ' '], np.nan, inplace=True)
 
@@ -61,10 +65,6 @@ df['PR_CAT'] = [
 #Padronização de texto
 df['PR_CAT'] = df['PR_CAT'].str.title().str.strip()
 df['PR_NOME'] = df['PR_NOME'].str.title().str.strip()
-
-
-print(df['PR_CAT'].value_counts())
-print(df['PR_NOME'].value_counts())
 
 #Relatório final de qualidade
 relatorio_qualidade(df)
