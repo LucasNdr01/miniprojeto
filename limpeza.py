@@ -3,7 +3,10 @@ import pandas as pd
 import numpy as np
 
 #Leitura do arquivo CSV
-df = pd.read_csv('dados/Base Varejo.csv', sep=';')
+df_sujo = pd.read_csv('dados/Base Varejo.csv', sep=';')
+
+#Copiando para limpeza
+df = df_sujo.copy()
 
 print(df.head())
 
@@ -69,6 +72,13 @@ relatorio_qualidade(df)
 #Visualização final
 print("Dados apos limpeza")
 print(df.head())
+
+#Versão final limpa
+df_limpo = df.copy()
+
+#Salvar dataframe limpo
+df_limpo.to_csv('dados/base_varejo_limpa.csv', sep=';',index=False)
+
 
 
 
